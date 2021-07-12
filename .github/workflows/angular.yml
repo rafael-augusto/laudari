@@ -3,18 +3,18 @@ on:
   push:
     branches: [ main ]
     paths:
-      - Laudari.Webapp/laudari-webapp/**
+      - Laudari.WebApp/laudari-webapp/**
       - .github/workflows/angular.yml
 
   pull_request:
     branches: [ main ]
     paths:
-      - Laudari.Webapp/laudari-webapp/**
+      - Laudari.WebApp/laudari-webapp/**
       - .github/workflows/angular.yml
 
 defaults:
   run:
-    working-directory: Laudari.Webapp/laudari-webapp
+    working-directory: Laudari.WebApp/laudari-webapp
 
 jobs:
   build:
