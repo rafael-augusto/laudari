@@ -1,5 +1,7 @@
 # Laudari - Laudo Estruturado Web (POC)
 
+[![.NET](https://github.com/rafael-augusto/laudari/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/rafael-augusto/laudari/actions/workflows/dotnet.yml)
+
 ## Descrição
 
 Prova de conceito: Projeto de laudo estruturado web.
