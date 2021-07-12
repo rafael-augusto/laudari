@@ -5,11 +5,13 @@ on:
     branches: [ main ]
     paths:
       - Laudari.Backend/**
+      - .github/workflows/dotnet.yml
 
   pull_request:
     branches: [ main ]
     paths:
       - Laudari.Backend/**
+      - .github/workflows/dotnet.yml
 
 
 defaults:
