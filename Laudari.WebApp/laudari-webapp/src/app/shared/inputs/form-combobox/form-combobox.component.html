@@ -1,0 +1,7 @@
+<div class="form-group">
+      <select class="form-control form-control-sm" [(disabled)]="desabilitado" [ngModel]="model" (ngModelChange)="onChange($event)">
+          <option *ngFor="let item of itens" [ngValue]="item.ID">
+              {{item.Nome}}
+          </option>
+      </select>
+  </div>

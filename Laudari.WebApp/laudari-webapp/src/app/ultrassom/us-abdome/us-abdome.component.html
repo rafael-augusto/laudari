@@ -1,0 +1,239 @@
+<h2>Ultrassom Abdome / Aparelho Urinário / Pelve</h2>
+
+
+
+<ngb-accordion #acc="ngbAccordion" activeIds="limitacoesTecnicas,figado,vesiculaBiliar,viasBiliares,pancreas,baco,aorta,intestino,bexiga,rinsUreteres,liquidoLivre,volumeVesical">
+  <!--  -->
+  <ngb-panel id="limitacoesTecnicas" title="Limitações Técnicas">
+    <ng-template ngbPanelContent>
+      <app-limitacoes-tecnicas [(limitacaoTecnica)]="limitacaoTecnica"></app-limitacoes-tecnicas>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="figado" title="Fígado">
+    <ng-template ngbPanelContent>
+      <app-us-figado [(figado)]="figado"></app-us-figado>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="vesiculaBiliar" title="Vesicula biliar">`
+    <ng-template ngbPanelContent>
+      <div class="row">
+        <div class="col-md-12">
+          <fieldset class="form-group">
+            <app-form-radiobox nome="radioVesiculaClas" [valor]="1" [(model)]="vesicula.Classificacao" text="Normal"></app-form-radiobox>
+            <div class="row">
+              <div class="col-md-2">
+                <app-form-radiobox nome="radioVesiculaCalculoQtd" [valor]="1" [(model)]="vesicula.QuantidadeCalculo"
+                  text="Cálculo único"></app-form-radiobox>
+              </div>
+              <div class="col-md-2">
+                <app-form-text-addon inputType="number" append="mm" [(model)]="vesicula.DimensaoCalculo" [desabilitado]="vesicula.QuantidadeCalculo != 1"></app-form-text-addon>
+              </div>
+              <div class="col-md-8">
+                <app-form-checkbox text='Colecistite Aguda?' [(model)]="vesicula.Colecistite" [desabilitado]="vesicula.QuantidadeCalculo != 1"></app-form-checkbox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <app-form-radiobox nome="radioVesiculaCalculoQtd" [valor]="2" [(model)]="vesicula.QuantidadeCalculo"
+                  text="Múltiplus Cálculos"></app-form-radiobox>
+              </div>
+              <div class="col-md-2">
+                <app-form-text-addon inputType="number" append="mm" [(model)]="vesicula.DimensaoCalculoA"
+                  [desabilitado]="vesicula.QuantidadeCalculo != 2"></app-form-text-addon>
+              </div>
+              <div class="col-md-1">
+                <label>a</label>
+              </div>
+              <div class="col-md-2">
+                <app-form-text-addon inputType="number" append="mm" [(model)]="vesicula.DimensaoCalculoB"
+                  [desabilitado]="vesicula.QuantidadeCalculo != 2"></app-form-text-addon>
+              </div>
+              <div class="col-md-4">
+                <app-form-checkbox text='Colecistite Aguda?' [(model)]="vesicula.Colecistite" [desabilitado]="vesicula.QuantidadeCalculo != 2"></app-form-checkbox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <app-form-radiobox nome="radioVesiculaPolipoQtd" [valor]="1" [(model)]="vesicula.QuantidadePolipo" text="Pólipo Unico"></app-form-radiobox>
+              </div>
+              <div class="col-md-2">
+                <app-form-text-addon inputType="number" append="mm" [(model)]="vesicula.DimensaoPolipo" [desabilitado]="vesicula.QuantidadePolipo != 1"></app-form-text-addon>
+              </div>
+              <div class="col-md-7"></div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <app-form-radiobox nome="radioVesiculaPolipoQtd" [valor]="2" [(model)]="vesicula.QuantidadePolipo" text="Múltiplos Pólipos"></app-form-radiobox>
+              </div>
+              <div class="col-md-2">
+                <app-form-text-addon inputType="number" append="mm" [(model)]="vesicula.DimensaoPolipo" [desabilitado]="vesicula.QuantidadePolipo != 2"></app-form-text-addon>
+              </div>
+              <div class="col-md-1">
+                <label>a</label>
+              </div>
+              <div class="col-md-2">
+                <app-form-text-addon inputType="number" append="mm" [(model)]="vesicula.DimensaoPolipoMaior"
+                  [desabilitado]="vesicula.QuantidadePolipo != 1"></app-form-text-addon>
+              </div>
+            </div>
+            <app-form-radiobox nome="radioVesiculaPolipoQtd" [valor]="3" [(model)]="vesicula.QuantidadePolipo" text="Colesterolose"></app-form-radiobox>
+            <app-form-radiobox nome="radioVesiculaClas" [valor]="2" [(model)]="vesicula.Classificacao" text="Vazia"></app-form-radiobox>
+            <app-form-radiobox nome="radioVesiculaClas" [valor]="3" [(model)]="vesicula.Classificacao" text="Ausente"></app-form-radiobox>
+
+          </fieldset>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="viasBiliares" title="Vias Biliares">
+    <ng-template ngbPanelContent>
+      <app-us-viasbiliares [(viasBiliares)]="viasBiliares"></app-us-viasbiliares>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="pancreas" title="Pâncreas">
+    <ng-template ngbPanelContent>
+      <app-us-pancreas [(pancreas)]="pancreas"></app-us-pancreas>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="baco" title="Baço">
+    <ng-template ngbPanelContent>
+      <app-us-baco [(baco)]="baco"></app-us-baco>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="aorta" title="Aorta / retroperitôneo">
+    <ng-template ngbPanelContent>
+      <div class="row">
+        <div class="col-md-12">
+          <fieldset class="form-group">
+
+            <div class="row">
+              <div class="col-md-5">
+                <app-form-radiobox nome="radioAortaClassificacao" [valor]="0" [(model)]="aorta.Classificacao" text="Aorta Normal"></app-form-radiobox>
+              </div>
+              <div class="col-md-3">
+                <app-form-checkbox text='Citar calibre' [(model)]="aorta.CitarCalibre" [desabilitado]="aorta.Classificacao == 3 || aorta.Classificacao == 4"></app-form-checkbox>
+              </div>
+              <div class="col-md-3">
+                <app-form-text-addon inputType="number" append="mm" [(model)]="aorta.Calibre" [desabilitado]="!aorta.CitarCalibre"></app-form-text-addon>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+                <app-form-radiobox nome="radioAortaClassificacao" [valor]="1" [(model)]="aorta.Classificacao" text="Aorta ateromatosa"></app-form-radiobox>
+              </div>
+              <div class="col-md-3">
+                <app-form-checkbox text='Citar fluxo norma ao Doppler' [(model)]="aorta.CitarFluxoNormalDoppler"
+                  [desabilitado]="aorta.Classificacao == 4"></app-form-checkbox>
+              </div>
+              <div class="col-md-2 ">
+                <app-form-checkbox [IdInput]="'citarVpsAorta'"  text='Citar VPS' [(model)]="aorta.CitarVPS"></app-form-checkbox>
+              </div>
+              <div class="col-md-2 ">
+                <app-form-text-addon inputType="number" append="mm" [(model)]="aorta.VPS" [desabilitado]="!aorta.CitarVPS"></app-form-text-addon>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <app-form-radiobox nome="radioAortaClassificacao" [valor]="2" [(model)]="aorta.Classificacao" text="Aorta Ateromatosa e ectasiada"></app-form-radiobox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <app-form-radiobox nome="radioAortaClassificacao" [valor]="3" [(model)]="aorta.Classificacao" text="Aneurisma"></app-form-radiobox>
+              </div>
+              <div class="col-md-3">
+                <app-form-combobox [(model)]="aorta.TipoAneurisma" [itens]="tipoAneurisma" [desabilitado]="aorta.Classificacao != 3"></app-form-combobox>
+              </div>
+              <div class="col-md-3">
+                <app-form-combobox [(model)]="aorta.LocalAneurisma" [itens]="localAneurisma" [desabilitado]="aorta.Classificacao != 3"></app-form-combobox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <label>com calibre maximo de</label>
+              </div>
+              <div class="col-md-3">
+                <app-form-text-addon inputType="number" append="mm" [(model)]="aorta.CalibreAneurisma" [desabilitado]="aorta.Classificacao != 3"></app-form-text-addon>
+
+              </div>
+              <div class="col-md-3">
+                <app-form-text-addon inputType="number" append="mm" [(model)]="aorta.ExtensaoAneurisma" [desabilitado]="aorta.Classificacao != 3"></app-form-text-addon>
+              </div>
+              <div class="col-md-3">
+                <app-form-checkbox text='Trombo Pariental' [(model)]="aorta.TromboPariental"></app-form-checkbox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <app-form-radiobox nome="radioAortaClassificacao" [valor]="4" [(model)]="aorta.Classificacao" text="Inacessível (Não Citar linfonodos retroperitoneais)"></app-form-radiobox>
+
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="intestino" title="Alças Intestinais">
+    <ng-template ngbPanelContent>
+      <app-us-intestino [(intestino)]="intestino"></app-us-intestino>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="bexiga" title="Bexiga">
+    <ng-template ngbPanelContent>
+      <app-us-bexiga [(bexiga)]="bexiga"></app-us-bexiga>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="volumeVesical" title="Volume vesical pré e pós miccional (Resíduo)">
+    <ng-template ngbPanelContent>
+      <app-us-volume-vesical [(volumeVesical)]="volumeVesical"></app-us-volume-vesical>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="liquidoLivre" title="Liquido Livre">
+    <ng-template ngbPanelContent>
+      <app-us-liquido-livre [(liquidoLivre)]="liquidoLivre"></app-us-liquido-livre>
+    </ng-template>
+  </ngb-panel>
+
+
+  <ngb-panel id="rinsUreteres" title="Rins e Uréteres">
+    <ng-template ngbPanelContent>
+      <app-us-rins-ureteres [(rinsUreteres)]="rinsUreteres"  [aorta]="aorta"></app-us-rins-ureteres>
+    </ng-template>
+  </ngb-panel>
+
+</ngb-accordion>
+
+
+
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <angular-editor [(ngModel)]="laudo" ></angular-editor>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Print')">
+      <i class='fa fa-print'></i>
+    </button>
+  </div>
+</ng-template>
+
+
+
+<div style="position: fixed;bottom: 0;right: 0;left: 0;z-index: 1030;padding:10px;background-color:#f8f9fa">
+
+  <div class="float-left">
+    <button type="button" (click)="novoLaudo()" class="btn btn-default">
+      <i class="fa fa-rotate-left"></i> Novo Laudo</button>
+  </div>
+  <div class="float-right">
+    <button type="button" (click)="gerarLaudo(content)" class="btn btn-primary">Gerar Laudo</button>
+  </div>
+
+</div>

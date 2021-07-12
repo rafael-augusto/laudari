@@ -1,0 +1,545 @@
+<div class="row">
+  <div class="col-md-12">
+    <fieldset class="form-group">
+      <div class="row">
+        <div class="col-md-4">
+          <app-form-checkbox [(model)]="rinsUreteres.AspectoNormal" text="Aspecto normal"></app-form-checkbox>
+        </div>
+        <div class="col-4">
+          <app-form-checkbox [(model)]="rinsUreteres.AusenciaRimDireito" (modelChange)="changeAusenciaRimDireito()" text="Ausência rim direito"></app-form-checkbox>
+        </div>
+        <div class="col-4">
+          <app-form-checkbox [(model)]="rinsUreteres.AusenciaRimEsquerdo" (modelChange)="changeAusenciaRimEsquerdo()" text="Ausência rim esquerdo"></app-form-checkbox>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <app-form-checkbox [(model)]="rinsUreteres.IncluirMedidaRins" text="Incluir medida dos rins"></app-form-checkbox>
+        </div>
+      </div>
+
+      <div class="row" [hidden]="!rinsUreteres.IncluirMedidaRins">
+        <div class="col-md-12">
+          <div class="card">
+            <b class="card-title"></b>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-6">
+                  <div class="card">
+                    <b class="card-title">Rim Direito</b>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label style="padding-left:20px">L</label>
+                        </div>
+                        <div class="col-md-8">
+                          <app-form-text-addon [desabilitado]="rinsUreteres.AusenciaRimDireito" inputType="number" append="mm" [(model)]="rinsUreteres.RimDireitoL"></app-form-text-addon>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-4">
+                          <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimDireito" text='T' [(model)]="rinsUreteres.IncluirRimDireitoT"></app-form-checkbox>
+                        </div>
+                        <div class="col-md-8">
+                          <app-form-text-addon [desabilitado]="rinsUreteres.AusenciaRimDireito" inputType="number" append="mm" [(model)]="rinsUreteres.RimDireitoT"></app-form-text-addon>
+                        </div>
+                      </div>
+
+                      <div class="row">
+
+
+                        <div class="col-md-4">
+                          <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimDireito" text='AP' [(model)]="rinsUreteres.IncluirRimDireitoAP"></app-form-checkbox>
+                        </div>
+                        <div class="col-md-8">
+                          <app-form-text-addon [desabilitado]="rinsUreteres.AusenciaRimDireito" inputType="number" append="mm" [(model)]="rinsUreteres.RimDireitoAP"></app-form-text-addon>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-4">
+                          <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimDireito" text='parênquima' [(model)]="rinsUreteres.IncluirRimDireitoParenquima"></app-form-checkbox>
+                        </div>
+                        <div class="col-md-8">
+                          <app-form-text-addon [desabilitado]="rinsUreteres.AusenciaRimDireito" inputType="number" append="mm" [(model)]="rinsUreteres.RimDireitoParenquima"></app-form-text-addon>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="card">
+                    <b class="card-title">Rim Esquerdo</b>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label style="padding-left:20px">L</label>
+                        </div>
+                        <div class="col-md-8">
+                          <app-form-text-addon [desabilitado]="rinsUreteres.AusenciaRimEsquerdo" inputType="number" append="mm" [(model)]="rinsUreteres.RimEsquerdoL"></app-form-text-addon>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-4">
+                          <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimEsquerdo" text='T' [(model)]="rinsUreteres.IncluirRimEsquerdoT"></app-form-checkbox>
+                        </div>
+                        <div class="col-md-8">
+                          <app-form-text-addon [desabilitado]="rinsUreteres.AusenciaRimEsquerdo" inputType="number" append="mm" [(model)]="rinsUreteres.RimEsquerdoT"></app-form-text-addon>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-4">
+                          <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimEsquerdo" text='AP' [(model)]="rinsUreteres.IncluirRimEsquerdoAP"></app-form-checkbox>
+                        </div>
+                        <div class="col-md-8">
+                          <app-form-text-addon [desabilitado]="rinsUreteres.AusenciaRimEsquerdo" inputType="number" append="mm" [(model)]="rinsUreteres.RimEsquerdoAP"></app-form-text-addon>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-4">
+                          <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimEsquerdo" text='parênquima' [(model)]="rinsUreteres.IncluirRimEsquerdoParenquima"></app-form-checkbox>
+                        </div>
+                        <div class="col-md-8">
+                          <app-form-text-addon [desabilitado]="rinsUreteres.AusenciaRimEsquerdo" inputType="number" append="mm" [(model)]="rinsUreteres.RimEsquerdoParenquima"></app-form-text-addon>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <div class="row">
+        <div class="col-md-4">
+          <app-form-checkbox [(model)]="rinsUreteres.IncluirDopplerArteriasRenais" text="Incluir Doppler das artérias renais"></app-form-checkbox>
+        </div>
+      </div>
+
+      <div class="row" [hidden]="!rinsUreteres.IncluirDopplerArteriasRenais">
+        <div class="col-md-12">
+          <div class="card">
+            <b class="card-title"></b>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-12 form-inline">
+                      <label class="span-inputs">VPS à Direita</label>
+                      <app-form-text-addon [desabilitado]="rinsUreteres.AusenciaRimDireito" class="span-inputs" inputType="number" append="cm/s"
+                        [(model)]="rinsUreteres.VPSDireita"></app-form-text-addon>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-12 form-inline" style="text-align:right">
+                      <label class="span-inputs">VPS à Esquerda</label>
+                      <app-form-text-addon [desabilitado]="rinsUreteres.AusenciaRimEsquerdo" class="span-inputs" inputType="number" append="cm/s"
+                        [(model)]="rinsUreteres.VPSEsquerda"></app-form-text-addon>
+                    </div>
+
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <app-form-checkbox text='Citar relação VPS artérias renais / VPS aorta' [(model)]="rinsUreteres.CitarRelacaoVPSArteriasRenais"
+                    (modelChange)="changeCitarRelacaoVPSAorta()"></app-form-checkbox>
+                </div>
+                <div class="col-md-8">
+                  <b [hidden]="aorta.CitarVPS || !requireVPSAorta" style="color:red">* É necessário informar a <span title="clique para ir"  style="cursor:pointer; text-decoration:underline" (click)="clickVPSAorta()">velocidade sistólica da aorta</span></b>
+                </div>
+              </div>
+              <hr/>
+              <div class="row">
+                <div class="col-md-6">
+                  <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimDireito" text='Artéria renal Direita inacessível' [(model)]="rinsUreteres.ArteriaRenalDireitaInacessivel"></app-form-checkbox>
+                </div>
+                <div class="col-md-6">
+                  <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimEsquerdo" text='Artéria renal Esquerda inacessível' [(model)]="rinsUreteres.ArteriaRenalEsquerdaInacessivel"></app-form-checkbox>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimDireito" text='Citar Aceleração Arterial Segmentares' [(model)]="rinsUreteres.CitarAASegmentaresDireita"></app-form-checkbox>
+                    </div>
+                  </div>
+
+                  <div class="row" style="padding-left:20px">
+                    <div class="col-md-12 form-inline">
+                      <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimDireito || !rinsUreteres.CitarAASegmentaresDireita" class="span-inputs" text='Superior Direita' [(model)]="rinsUreteres.IncluirSuperiorDireita"></app-form-checkbox>
+                      <app-form-text-addon [desabilitado]="rinsUreteres.AusenciaRimDireito || !rinsUreteres.CitarAASegmentaresDireita" class="span-inputs" inputType="number" append="m/s2"
+                        [(model)]="rinsUreteres.SuperiorDireita"></app-form-text-addon>
+                    </div>
+                  </div>
+
+
+                  <div class="row" style="padding-left:20px">
+                    <div class="col-md-12 form-inline">
+                      <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimDireito || !rinsUreteres.CitarAASegmentaresDireita" class="span-inputs" text='Média Direita' [(model)]="rinsUreteres.IncluirMediaDireita"></app-form-checkbox>
+                      <app-form-text-addon [desabilitado]="rinsUreteres.AusenciaRimDireito || !rinsUreteres.CitarAASegmentaresDireita" style="margin-left:17px" class="span-inputs" inputType="number"
+                        append="m/s2" [(model)]="rinsUreteres.MediaDireita"></app-form-text-addon>
+                    </div>
+                  </div>
+
+                  <div class="row" style="padding-left:20px">
+                    <div class="col-md-12 form-inline">
+                      <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimDireito || !rinsUreteres.CitarAASegmentaresDireita" class="span-inputs" text='Inferior Direita' [(model)]="rinsUreteres.IncluirInferiorDireita"></app-form-checkbox>
+                      <app-form-text-addon [desabilitado]="rinsUreteres.AusenciaRimDireito || !rinsUreteres.CitarAASegmentaresDireita" style="margin-left:10px" class="span-inputs" inputType="number"
+                        append="m/s2" [(model)]="rinsUreteres.InferiorDireita"></app-form-text-addon>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimEsquerdo" text='Citar Aceleração Arterial Segmentares' [(model)]="rinsUreteres.CitarAASegmentaresEsquerda"></app-form-checkbox>
+                    </div>
+                  </div>
+
+
+
+                  <div class="row" style="padding-left:20px">
+                    <div class="col-md-12 form-inline">
+                      <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimEsquerdo || !rinsUreteres.CitarAASegmentaresEsquerda" class="span-inputs" text='Superior Esquerda' [(model)]="rinsUreteres.IncluirSuperiorEsquerda"></app-form-checkbox>
+                      <app-form-text-addon [desabilitado]="rinsUreteres.AusenciaRimEsquerdo || !rinsUreteres.CitarAASegmentaresEsquerda" class="span-inputs" inputType="number" append="m/s2"
+                        [(model)]="rinsUreteres.SuperiorEsquerda"></app-form-text-addon>
+                    </div>
+                  </div>
+
+
+                  <div class="row" style="padding-left:20px">
+                    <div class="col-md-12 form-inline">
+                      <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimEsquerdo || !rinsUreteres.CitarAASegmentaresEsquerda" class="span-inputs" text='Média Esquerda' [(model)]="rinsUreteres.IncluirMediaEsquerda"></app-form-checkbox>
+                      <app-form-text-addon [desabilitado]="rinsUreteres.AusenciaRimEsquerdo || !rinsUreteres.CitarAASegmentaresEsquerda" style="margin-left:17px" class="span-inputs" inputType="number"
+                        append="m/s2" [(model)]="rinsUreteres.MediaEsquerda"></app-form-text-addon>
+                    </div>
+                  </div>
+
+                  <div class="row" style="padding-left:20px">
+                    <div class="col-md-12 form-inline">
+                      <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimEsquerdo || !rinsUreteres.CitarAASegmentaresEsquerda" class="span-inputs" text='Inferior Esquerda' [(model)]="rinsUreteres.IncluirInferiorEsquerda"></app-form-checkbox>
+                      <app-form-text-addon [desabilitado]="rinsUreteres.AusenciaRimEsquerdo || !rinsUreteres.CitarAASegmentaresEsquerda" style="margin-left:10px" class="span-inputs" inputType="number"
+                        append="m/s2" [(model)]="rinsUreteres.InferiorEsquerda"></app-form-text-addon>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <b class="card-title">Nefropatia parenquimatosa crônica</b>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12 form-inline">
+                  <app-form-checkbox [(model)]="rinsUreteres.PossuiNefropatiaParenquimatosaCronica" text="afilamento parenquimatoso e alteração ecotextural"></app-form-checkbox>
+                  <app-form-combobox [desabilitado]="ausenciaUmDosRins" class="span-inputs" [(model)]="rinsUreteres.PosicaoNefropatiaParenquimatosaCronica"
+                    [itens]="PosicaoNefropatiaParenquimatosaCronica"></app-form-combobox>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <b class="card-title">Nódulo sólido</b>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12 form-inline">
+                  <app-form-checkbox class="span-inputs" [(model)]="rinsUreteres.PossuiNoduloSolido" text="Nódulo"></app-form-checkbox>
+                  <app-form-combobox class="span-inputs" [(model)]="rinsUreteres.ClassificacaoNoduloSolido" [itens]="ClassificacaoNoduloSolido"></app-form-combobox>
+                  <app-form-combobox class="span-inputs" [(model)]="rinsUreteres.ContornoNoduloSolido" [itens]="ContornoNoduloSolido"></app-form-combobox>
+                  <app-form-text-addon class="span-inputs" inputType="number" append=" x " [(model)]="rinsUreteres.DimensaoANoduloSolido"></app-form-text-addon>
+                  <app-form-text-addon class="span-inputs" inputType="number" append=" mm " [(model)]="rinsUreteres.DimensaoBNoduloSolido"></app-form-text-addon>
+                  <label class="span-inputs"> no </label>
+                  <app-form-combobox class="span-inputs" [(model)]="rinsUreteres.PosicaoNoduloSolido" [itens]="PosicaoRim"></app-form-combobox>
+                  <app-form-combobox [desabilitado]="ausenciaUmDosRins" class="span-inputs" [(model)]="rinsUreteres.RimNoduloSolido" [itens]="RimEsquerdoDireito"></app-form-combobox>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <b class="card-title">Cistos</b>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3">
+                  <app-form-checkbox [(model)]="rinsUreteres.PossuiCisto1" text="cisto 1"></app-form-checkbox>
+                </div>
+                <div class="col-md-9 form-inline">
+                  <app-form-text-addon class="span-inputs" inputType="number" append=" mm " [(model)]="rinsUreteres.DimensaoCisto1"></app-form-text-addon>
+                  <app-form-combobox class="span-inputs" [(model)]="rinsUreteres.PosicaoCisto1" [itens]="PosicaoRim"></app-form-combobox>
+                  <app-form-combobox [desabilitado]="ausenciaUmDosRins" class="span-inputs" [(model)]="rinsUreteres.RimCisto1" [itens]="RimEsquerdoDireito"></app-form-combobox>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-3">
+                  <app-form-checkbox [(model)]="rinsUreteres.PossuiCisto2" text="cisto 2"></app-form-checkbox>
+                </div>
+                <div class="col-md-9 form-inline">
+                  <app-form-text-addon class="span-inputs" inputType="number" append=" mm " [(model)]="rinsUreteres.DimensaoCisto2"></app-form-text-addon>
+                  <app-form-combobox class="span-inputs" [(model)]="rinsUreteres.PosicaoCisto2" [itens]="PosicaoRim"></app-form-combobox>
+                  <app-form-combobox [desabilitado]="ausenciaUmDosRins" class="span-inputs" [(model)]="rinsUreteres.RimCisto2" [itens]="RimEsquerdoDireito"></app-form-combobox>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-3">
+                  <app-form-checkbox [(model)]="rinsUreteres.PossuiCisto3" text="cisto 3"></app-form-checkbox>
+                </div>
+                <div class="col-md-9 form-inline">
+                  <app-form-text-addon class="span-inputs" inputType="number" append=" mm " [(model)]="rinsUreteres.DimensaoCisto3"></app-form-text-addon>
+                  <app-form-combobox class="span-inputs" [(model)]="rinsUreteres.PosicaoCisto3" [itens]="PosicaoRim"></app-form-combobox>
+                  <app-form-combobox [desabilitado]="ausenciaUmDosRins" class="span-inputs" [(model)]="rinsUreteres.RimCisto3" [itens]="RimEsquerdoDireito"></app-form-combobox>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-3">
+                  <app-form-checkbox [(model)]="rinsUreteres.PossuiCisto4" text="cisto 4"></app-form-checkbox>
+                </div>
+                <div class="col-md-9 form-inline">
+                  <app-form-text-addon class="span-inputs" inputType="number" append=" mm " [(model)]="rinsUreteres.DimensaoCisto4"></app-form-text-addon>
+                  <app-form-combobox class="span-inputs" [(model)]="rinsUreteres.PosicaoCisto4" [itens]="PosicaoRim"></app-form-combobox>
+                  <app-form-combobox [desabilitado]="ausenciaUmDosRins" class="span-inputs" [(model)]="rinsUreteres.RimCisto4" [itens]="RimEsquerdoDireito"></app-form-combobox>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-3">
+                  <app-form-checkbox [desabilitado]="ausenciaUmDosRins" [(model)]="rinsUreteres.PossuiVariosCistosBilaterais" text="vários bilaterais, o maior"></app-form-checkbox>
+                </div>
+                <div class="col-md-9 form-inline">
+                  <app-form-text-addon [desabilitado]="ausenciaUmDosRins" class="span-inputs" inputType="number" append=" mm " [(model)]="rinsUreteres.DimensaoCistosBilaterais"></app-form-text-addon>
+                  <app-form-combobox [desabilitado]="ausenciaUmDosRins" class="span-inputs" [(model)]="rinsUreteres.PosicaoCistosBilaterais"
+                    [itens]="PosicaoRim"></app-form-combobox>
+                  <app-form-combobox [desabilitado]="ausenciaUmDosRins" class="span-inputs" [(model)]="rinsUreteres.RimCistosBilaterais" [itens]="RimEsquerdoDireito"></app-form-combobox>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <b class="card-title">Cálculos calcinais</b>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3">
+                  <app-form-checkbox [(model)]="rinsUreteres.PossuiCalculo1" text="calculo 1"></app-form-checkbox>
+                </div>
+                <div class="col-md-9 form-inline">
+                  <app-form-text-addon class="span-inputs" inputType="number" append=" mm " [(model)]="rinsUreteres.DimensaoCalculo1"></app-form-text-addon>
+                  <app-form-combobox class="span-inputs" [(model)]="rinsUreteres.PosicaoCalculo1" [itens]="PosicaoRim"></app-form-combobox>
+                  <app-form-combobox [desabilitado]="ausenciaUmDosRins" class="span-inputs" [(model)]="rinsUreteres.RimCalculo1" [itens]="RimEsquerdoDireito"></app-form-combobox>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-3">
+                  <app-form-checkbox [(model)]="rinsUreteres.PossuiCalculo2" text="calculo 2"></app-form-checkbox>
+                </div>
+                <div class="col-md-9 form-inline">
+                  <app-form-text-addon class="span-inputs" inputType="number" append=" mm " [(model)]="rinsUreteres.DimensaoCalculo2"></app-form-text-addon>
+                  <app-form-combobox class="span-inputs" [(model)]="rinsUreteres.PosicaoCalculo2" [itens]="PosicaoRim"></app-form-combobox>
+                  <app-form-combobox [desabilitado]="ausenciaUmDosRins" class="span-inputs" [(model)]="rinsUreteres.RimCalculo2" [itens]="RimEsquerdoDireito"></app-form-combobox>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-3">
+                  <app-form-checkbox [(model)]="rinsUreteres.PossuiCalculo3" text="calculo 3"></app-form-checkbox>
+                </div>
+                <div class="col-md-9 form-inline">
+                  <app-form-text-addon class="span-inputs" inputType="number" append=" mm " [(model)]="rinsUreteres.DimensaoCalculo3"></app-form-text-addon>
+                  <app-form-combobox class="span-inputs" [(model)]="rinsUreteres.PosicaoCalculo3" [itens]="PosicaoRim"></app-form-combobox>
+                  <app-form-combobox [desabilitado]="ausenciaUmDosRins" class="span-inputs" [(model)]="rinsUreteres.RimCalculo3" [itens]="RimEsquerdoDireito"></app-form-combobox>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-3">
+                  <app-form-checkbox [(model)]="rinsUreteres.PossuiCalculo4" text="calculo 4"></app-form-checkbox>
+                </div>
+                <div class="col-md-9 form-inline">
+                  <app-form-text-addon class="span-inputs" inputType="number" append=" mm " [(model)]="rinsUreteres.DimensaoCalculo4"></app-form-text-addon>
+                  <app-form-combobox class="span-inputs" [(model)]="rinsUreteres.PosicaoCalculo4" [itens]="PosicaoRim"></app-form-combobox>
+                  <app-form-combobox [desabilitado]="ausenciaUmDosRins" class="span-inputs" [(model)]="rinsUreteres.RimCalculo4" [itens]="RimEsquerdoDireito"></app-form-combobox>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-3">
+                  <app-form-checkbox [desabilitado]="ausenciaUmDosRins" [(model)]="rinsUreteres.PossuiVariosCalculosBilaterais" text="vários bilaterais, o maior"></app-form-checkbox>
+                </div>
+                <div class="col-md-9 form-inline">
+                  <app-form-text-addon [desabilitado]="ausenciaUmDosRins" class="span-inputs" inputType="number" append=" mm " [(model)]="rinsUreteres.DimensaoCalculosBilaterais"></app-form-text-addon>
+                  <app-form-combobox [desabilitado]="ausenciaUmDosRins" class="span-inputs" [(model)]="rinsUreteres.PosicaoCalculosBilaterais"
+                    [itens]="PosicaoRim"></app-form-combobox>
+                  <app-form-combobox [desabilitado]="ausenciaUmDosRins" class="span-inputs" [(model)]="rinsUreteres.RimCalculosBilaterais"
+                    [itens]="RimEsquerdoDireito"></app-form-combobox>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <app-form-checkbox [(model)]="rinsUreteres.PossuiMicroCalculosBilaterais" text="microcálculos bilaterais X calcificações vasculares"></app-form-checkbox>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <b class="card-title">Dilatação pielocalcinal</b>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6 form-inline">
+                  <label class="span-inputs"> Direita </label>
+                  <app-form-combobox [desabilitado]="rinsUreteres.AusenciaRimDireito" class="span-inputs" [(model)]="rinsUreteres.DilatacaoPielocalcinalDireita"
+                    [itens]="DilatacaoPielocalcinal"></app-form-combobox>
+
+                </div>
+                <div class="col-md-6 form-inline">
+                  <label class="span-inputs"> Esquerda </label>
+                  <app-form-combobox [desabilitado]="rinsUreteres.AusenciaRimEsquerdo" class="span-inputs" [(model)]="rinsUreteres.DilatacaoPielocalcinalEsquerda"
+                    [itens]="DilatacaoPielocalcinal"></app-form-combobox>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6" style="padding-left: 30px">
+                  <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimDireito" [(model)]="rinsUreteres.AdicionarUretralDilatacaoDireita"
+                    text="adicionar Uretral"></app-form-checkbox>
+                </div>
+                <div class="col-md-6" style="padding-left: 30px">
+                  <app-form-checkbox [desabilitado]="rinsUreteres.AusenciaRimEsquerdo" [(model)]="rinsUreteres.AdicionarUretralDilatacaoEsquerda"
+                    text="adicionar Uretral"></app-form-checkbox>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <b class="card-title">Cálculo uretral</b>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12 form-inline">
+                  <app-form-checkbox class="span-inputs" [(model)]="rinsUreteres.PossuiCalculoUretral" text="cálculo "></app-form-checkbox>
+                  <app-form-text-addon class="span-inputs" inputType="number" append=" mm " [(model)]="rinsUreteres.DimensaoCalculoUretral"></app-form-text-addon>
+                  <app-form-combobox class="span-inputs" [(model)]="rinsUreteres.PosicaoCalculoUretral" [itens]="PosicaoCalculoUretral"></app-form-combobox>
+                  <app-form-combobox [desabilitado]="ausenciaUmDosRins" class="span-inputs" [(model)]="rinsUreteres.CalculoUretralDireitoEsquerdo"
+                    [itens]="CalculoUretralEsquerdaDireita"></app-form-combobox>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </fieldset>
+  </div>
+</div>

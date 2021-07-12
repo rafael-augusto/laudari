@@ -1,0 +1,5 @@
+<div class="form-check">
+  <label class="form-check-label">
+    <input class="form-check-input" [id]="IdInput"  type="checkbox" [(disabled)]="desabilitado"  [ngModel]="model" (ngModelChange)="onChange($event)"> {{text}}
+  </label>
+</div>

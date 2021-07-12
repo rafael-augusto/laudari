@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-12">
+    <fieldset class="form-group">
+      <div class="row">
+        <div class="col-md-3">
+          <app-form-radiobox nome="radioViasBiliaresColedoco" [valor]="0" [(model)]="viasBiliares.Coledoco" text="Colédoco normal"  (modelChange)="changeCitarCalibre()"></app-form-radiobox>
+        </div>
+        <div class="col-md-4">
+          <app-form-checkbox text='Dilatação de vias biliares intra-hepáticas' [(model)]="viasBiliares.Dilatacao"></app-form-checkbox>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <app-form-radiobox nome="radioViasBiliaresColedoco" [valor]="1" [(model)]="viasBiliares.Coledoco" text="Colédoco ectasiado"  (modelChange)="changeCitarCalibre()"></app-form-radiobox>
+        </div>
+        <div class="col-md-2">
+          <app-form-checkbox text='citar calibre' [(model)]="viasBiliares.CitarCalibre" [desabilitado]="viasBiliares.Coledoco == 1"></app-form-checkbox>
+        </div>
+        <div class="col-md-2">
+          <app-form-text-addon inputType="number" append="mm" [(model)]="viasBiliares.Calibre" [desabilitado]="!viasBiliares.CitarCalibre"></app-form-text-addon>
+        </div>
+        <div class="col-md-2">
+          <app-form-checkbox text='calculo de' [(model)]="viasBiliares.CitarCalculo" [desabilitado]="viasBiliares.Coledoco == 0"></app-form-checkbox>
+        </div>
+        <div class="col-md-2">
+          <app-form-text-addon inputType="number" append="mm" [(model)]="viasBiliares.DimensaoCalculo" [desabilitado]="!viasBiliares.CitarCalculo || viasBiliares.Coledoco == 0"></app-form-text-addon>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

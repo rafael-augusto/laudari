@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+.card-header{
+    height:40px;
+    padding:5px;
+}
+
+.card-title {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.card-body{
+    padding: 1.0rem;
+}
+.mb-0 > button{
+    padding:0;
+    margin:0;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+body {
+    line-height:2;
+    font-size:12px !important;
+}
+.form-control-sm, 
+.input-group-sm>.form-control,
+.input-group-sm>.input-group-append>.btn,
+.input-group-sm>.input-group-append>.input-group-text,
+.input-group-sm>.input-group-prepend>.btn,
+.input-group-sm>.input-group-prepend>.input-group-text
+{
+     font-size:12px !important;
+}
+
+.row{
+    margin-top:5px;
+}
+
+.span-inputs{
+    margin-left: 5px;
+    display: inline-block;
+}
+
+.form-inline > *{
+    margin-left:5px
+}
+
+.modal-lg{
+    max-width:80%;
+}
+
+.card{
+    margin:3px
+}

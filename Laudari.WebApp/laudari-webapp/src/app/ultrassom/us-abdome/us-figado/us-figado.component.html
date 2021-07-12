@@ -1,0 +1,268 @@
+<div class="row">
+  <div class="col-md-12">
+    <fieldset class="form-group">
+
+
+      <!-- Classificacao e Dimensoes-->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <b class="card-title">Classificação</b>
+            <div class="card-body" style="height:165px;">
+              <div class="row">
+                <div class="col-md-12">
+                  <app-form-radiobox class="span-inputs" nome="radioClassificacao" [valor]="0" [(model)]="figado.Classificacao" text="Homogêneo"></app-form-radiobox>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-inline">
+                  <app-form-radiobox class="span-inputs" nome="radioClassificacao" [valor]="1" [(model)]="figado.Classificacao" text="Esteatose"></app-form-radiobox>
+
+                  <app-form-combobox class="span-inputs" [(model)]="figado.GrauEsteatose" [desabilitado]="figado.Classificacao != 1" [itens]="grausEsteatose"></app-form-combobox>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-inline">
+                  <app-form-radiobox class="span-inputs" nome="radioClassificacao" [valor]="2" [(model)]="figado.Classificacao" text="Hepatopatia Crônica"></app-form-radiobox>
+
+                  <app-form-combobox class="span-inputs" [(model)]="figado.TipoHepatopatiaCronica" [desabilitado]="figado.Classificacao != 2"
+                    [itens]="tiposHepatopatia"></app-form-combobox>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <b class="card-title">Dimensões</b>
+            <div class="card-body" style="height:165px;">
+              <div class="row">
+                <div class="col-md-6">
+                  <app-form-combobox [(model)]="figado.DimensaoDescritivo" [desabilitado]="" [itens]="dimensoesDescritivo"></app-form-combobox>
+                </div>
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-xs-12 form-inline">
+                      <app-form-checkbox text='LD' [(model)]="figado.LoboDireito"></app-form-checkbox>
+
+                      <app-form-text-addon inputType="number" [(model)]="figado.DimensaoLoboDireito" [desabilitado]="!figado.LoboDireito" append="mm"></app-form-text-addon>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+                    <div class="col-xs-12  form-inline">
+                      <app-form-checkbox text='LE' [(model)]="figado.LoboEsquerdo"></app-form-checkbox>
+
+                      <app-form-text-addon inputType="number" [(model)]="figado.DimensaoLoboEsquerdo" [desabilitado]="!figado.LoboEsquerdo" append="mm"></app-form-text-addon>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+                    <div class="col-xs-12  form-inline">
+                      <app-form-checkbox text='LC' [(model)]="figado.LoboCaudado"></app-form-checkbox>
+
+                      <app-form-text-addon inputType="number" [(model)]="figado.DimensaoLoboCaudado" [desabilitado]="!figado.LoboCaudado" append="mm"></app-form-text-addon>
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </div>
+
+              <div class="row">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Cistos-->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <b class="card-title">Cistos</b>
+            <div class="card-body">
+
+              <div class="row">
+                <div class="col-md-12 form-inline">
+
+                  <app-form-radiobox class="span-inputs" nome="radioQtdCistos" [valor]="0" [(model)]="figado.QuantidadeCistos" text="Cisto Simples"></app-form-radiobox>
+
+                  <span [hidden]="figado.QuantidadeCistos != 0">
+                    <span class="span-inputs"> de </span>
+                    <app-form-text-addon class="span-inputs" inputType="number" [(model)]="figado.DimensaoCisto" [desabilitado]="figado.QuantidadeCistos != 0"
+                      append="mm"></app-form-text-addon>
+                    <span class="span-inputs"> situado no </span>
+                    <app-form-combobox class="span-inputs" [(model)]="figado.SegmentoCisto" [itens]="SegmentoFigado" [desabilitado]="figado.QuantidadeCistos != 0"></app-form-combobox>
+                  </span>
+
+                </div>
+
+
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-inline">
+
+                  <app-form-radiobox class="span-inputs" nome="radioQtdCistos" [valor]="1" [(model)]="figado.QuantidadeCistos" text="Vários Cistos"></app-form-radiobox>
+
+                  <span [hidden]="figado.QuantidadeCistos != 1">
+                    <span class="span-inputs"> , o maior com </span>
+                    <app-form-text-addon class="span-inputs" inputType="number" [(model)]="figado.DimensaoCisto" [desabilitado]="figado.QuantidadeCistos != 1"
+                      append="mm"></app-form-text-addon>
+                    <span class="span-inputs"> situado no </span>
+                    <app-form-combobox class="span-inputs" [(model)]="figado.SegmentoCisto" [itens]="SegmentoFigado" [desabilitado]="figado.QuantidadeCistos != 1"></app-form-combobox>
+                  </span>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- Nódulos-->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <b class="card-title">Nódulos</b>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12 form-inline">
+                  <app-form-radiobox class="span-inputs" nome="radioQtdNodulos" [valor]="0" [(model)]="figado.QuantidadeNodulos" text="Nódulo"></app-form-radiobox>
+                  <span [hidden]="figado.QuantidadeNodulos != 0">
+                    <app-form-combobox class="span-inputs" [(model)]="figado.ClassificacaoNodulo" [itens]="ClassificacaoNodulo" [desabilitado]="figado.QuantidadeNodulos != 0"></app-form-combobox>
+                    <span class="span-inputs"> de contornos </span>
+                    <app-form-combobox class="span-inputs" [(model)]="figado.ClassificacaoContornoNodulo" [itens]="ClassificacaoContornoNodulo"
+                      [desabilitado]="figado.QuantidadeNodulos != 0"></app-form-combobox>
+                    <span class="span-inputs"> medindo </span>
+                    <app-form-text-addon class="span-inputs" inputType="number" append="" [(model)]="figado.DimensaoANodulo" [desabilitado]="figado.QuantidadeNodulos != 0"></app-form-text-addon>
+                    <span class="span-inputs"> x </span>
+                    <app-form-text-addon class="span-inputs" inputType="number" append="mm" [(model)]="figado.DimensaoBNodulo" [desabilitado]="figado.QuantidadeNodulos != 0"></app-form-text-addon>
+                    <span class="span-inputs"> , situado no </span>
+                    <app-form-combobox class="span-inputs" [(model)]="figado.SegmentoANodulo" [itens]="SegmentoFigado" [desabilitado]="figado.QuantidadeNodulos != 0"></app-form-combobox>
+                  </span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-inline">
+
+
+                  <app-form-radiobox class="span-inputs" nome="radioQtdNodulos" [valor]="1" [(model)]="figado.QuantidadeNodulos" text="Nódulos"></app-form-radiobox>
+                  <span [hidden]="figado.QuantidadeNodulos != 1">
+                    <app-form-combobox class="span-inputs" [(model)]="figado.ClassificacaoNodulo" [itens]="ClassificacaoNodulo" [desabilitado]="figado.QuantidadeNodulos != 1"></app-form-combobox>
+                    <span class="span-inputs">, </span>
+                    <app-form-combobox class="span-inputs" [(model)]="figado.EnfaseNodulo" [itens]="EnfaseMultiplosNodulos" [desabilitado]="figado.QuantidadeNodulos != 1"></app-form-combobox>
+                    <span class="span-inputs"> medindo </span>
+                    <app-form-text-addon class="span-inputs" inputType="number" append="mm" [(model)]="figado.DimensaoANodulo" [desabilitado]="figado.QuantidadeNodulos != 1"></app-form-text-addon>
+                    <span class="span-inputs"> no </span>
+                    <app-form-combobox class="span-inputs" [(model)]="figado.SegmentoANodulo" [itens]="SegmentoFigado" [desabilitado]="figado.QuantidadeNodulos != 1"></app-form-combobox>
+                    <span class="span-inputs"> e </span>
+                    <app-form-text-addon class="span-inputs" inputType="number" append="mm" [(model)]="figado.DimensaoANodulo" [desabilitado]="figado.QuantidadeNodulos != 1"></app-form-text-addon>
+                    <span class="span-inputs"> no </span>
+                    <app-form-combobox class="span-inputs" [(model)]="figado.SegmentoBNodulo" [itens]="SegmentoFigado" [desabilitado]="figado.QuantidadeNodulos != 1"></app-form-combobox>
+                  </span>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- Calcificação Grosseira-->
+
+      <div class="row">
+        <div class="col-md-12 form-inline">
+          <app-form-checkbox class="span-inputs" text='Calcificação Grosseira' [(model)]="figado.CalcificacaoGrosseira"></app-form-checkbox>
+
+          <app-form-text-addon class="span-inputs" inputType="number" append="mm" [(model)]="figado.DimensaoCalcificacao" [desabilitado]="!figado.CalcificacaoGrosseira"></app-form-text-addon>
+
+          <app-form-combobox class="span-inputs" [(model)]="figado.SegmentoCalcificacao" [itens]="SegmentoFigado" [desabilitado]="!figado.CalcificacaoGrosseira"></app-form-combobox>
+        </div>
+
+      </div>
+
+
+
+
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-12">
+              <app-form-checkbox class="span-inputs" text='Sistema porta' [(model)]="figado.SistemaPorta"></app-form-checkbox>
+            </div>
+          </div>
+
+          <div class="card" [hidden]="!figado.SistemaPorta">
+              <b class="card-title">Sistema Porta</b>
+            <div class="card-body row">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-12 form-inline">
+                    <app-form-checkbox class="span-inputs" text='Calibre da veia porta' [(model)]="figado.CalibreVeiaPorta" (modelChange)="changeCalibreVeiaPorta()"></app-form-checkbox>
+                    <app-form-text-addon class="span-inputs" inputType="number" append="mm" [(model)]="figado.DimensaoCalibreVeiaPorta" [desabilitado]="!figado.CalibreVeiaPorta"></app-form-text-addon>
+
+                    <app-form-checkbox style="margin-left:30px" class="span-inputs" text='Calibre da veia esplênica' [(model)]="figado.CalibreVeiaEsplenica"></app-form-checkbox>
+                    <app-form-text-addon class="span-inputs" inputType="number" append="mm" [(model)]="figado.DimensaoCalibreVeiaEsplenica" [desabilitado]="!figado.CalibreVeiaEsplenica"></app-form-text-addon>
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-inline">
+                    <app-form-checkbox class="span-inputs" text='Incluir Doppler' [(model)]="figado.IncluirDoppler" (modelChange)="changeIncluirDoppler()" ></app-form-checkbox>
+                  </div>
+                </div>
+                <div class="row" [hidden]="!figado.IncluirDoppler">
+                  <div class="col-md-12">
+                    <div class="card">
+                        <b class="card-title">Doppler</b>
+                      <div class="card-body">
+
+                        <div class="col-md-12 form-inline">
+                          <span class="span-inputs">fluxo portal</span>
+                          <app-form-combobox class="span-inputs" [(model)]="figado.FluxoPortal" [itens]="FluxosPortal" [desabilitado]="!figado.IncluirDoppler"></app-form-combobox>
+                          <span class="span-inputs">velocidade da veia porta</span>
+                          <app-form-text-addon class="span-inputs" inputType="number" append="cm/s" [(model)]="figado.VelocidadeVeiaPorta"></app-form-text-addon>
+                          <span class="span-inputs" style="margin-left:30px"> </span>
+                          <app-form-checkbox class="span-inputs" text='velocidade da veia esplênica' [(model)]="figado.CheckVelocidadeVeiaEsplenica"></app-form-checkbox>
+                          <app-form-text-addon class="span-inputs" inputType="number" append="cm/s" [(model)]="figado.VelocidadeVeiaEsplenica" [desabilitado]="!figado.CheckVelocidadeVeiaEsplenica"></app-form-text-addon>
+
+                        </div>
+                        <div class="col-md-12">
+                          <app-form-checkbox  text='colaterais na pequena curvatura gástrica' [(model)]="figado.ColateraisPequenaCurvaturaGastrica"></app-form-checkbox>
+                          <app-form-checkbox  text='colaterais no hilo esplênico' [(model)]="figado.ColateraisHiloEsplenico"></app-form-checkbox>
+                          <app-form-checkbox  text='recanalizacao da veia paraumbilical' [(model)]="figado.RecanalizacaoVeiaParaumbilical"></app-form-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+
+
+
+    </fieldset>
+  </div>
+</div>

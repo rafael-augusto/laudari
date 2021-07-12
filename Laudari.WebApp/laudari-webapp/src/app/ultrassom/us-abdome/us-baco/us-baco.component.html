@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-md-12">
+    <fieldset class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-12 form-inline">
+              <app-form-radiobox class="span-inputs" nome="radioBacoClas" [valor]="0" [(model)]="baco.Classificacao" text="Tamanho normal"></app-form-radiobox>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 form-inline">
+              <app-form-radiobox class="span-inputs" nome="radioBacoClas" [valor]="1" [(model)]="baco.Classificacao" text="Aumentado"></app-form-radiobox>
+              <app-form-combobox class="span-inputs" [(model)]="baco.Ecotextura" [itens]="ecotextura" [desabilitado]="baco.Classificacao != 1"></app-form-combobox>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 form-inline">
+              <app-form-radiobox class="span-inputs" nome="radioBacoClas" [valor]="2" [(model)]="baco.Classificacao" text="Ausente"></app-form-radiobox>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <b class="card-title">Dimensões</b>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12 form-inline">
+                  <app-form-checkbox class="span-inputs" text='' [(model)]="baco.Dimensao" [desabilitado]="baco.Classificacao == 2" ></app-form-checkbox>
+                  <app-form-text-addon class="span-inputs" inputType="number" append="mm" [(model)]="baco.DimensaoA" [desabilitado]="!baco.Dimensao || baco.Classificacao == 2"></app-form-text-addon>
+                  <app-form-text-addon class="span-inputs" inputType="number" append="mm" [(model)]="baco.DimensaoB" [desabilitado]="!baco.Dimensao || baco.Classificacao == 2"></app-form-text-addon>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <app-form-checkbox   class="span-inputs" text='Citar o índice esplênico' [desabilitado]="!baco.Dimensao || baco.Classificacao == 2" [(model)]="baco.CitarIndice"></app-form-checkbox>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12  form-inline">
+          <app-form-checkbox class="span-inputs" text='presença de baço acessório medindo' [(model)]="baco.BacoAcessorio"></app-form-checkbox>
+          <app-form-text-addon class="span-inputs" inputType="number" append="" [(model)]="baco.DimensaoAcessorioA" [desabilitado]="!baco.BacoAcessorio"></app-form-text-addon>
+          <span class="span-inputs"> x </span>
+          <app-form-text-addon class="span-inputs" inputType="number" append="mm" [(model)]="baco.DimensaoAcessorioA" [desabilitado]="!baco.BacoAcessorio"></app-form-text-addon>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-inline">
+          <app-form-checkbox text='Calcificação Esplênica' [(model)]="baco.Calcificacao" [desabilitado]="baco.Classificacao == 2"></app-form-checkbox>
+          <app-form-text-addon class="span-inputs" inputType="number" append="mm" [(model)]="baco.DimensaoCalcificacao" [desabilitado]="!baco.DimensaoCalcificacao || baco.Classificacao == 2"></app-form-text-addon>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

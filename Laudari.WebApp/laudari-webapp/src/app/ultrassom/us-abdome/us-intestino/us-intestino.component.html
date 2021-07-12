@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-4">
+        <app-form-checkbox text='apendicite' [(model)]="intestino.Apendicite"></app-form-checkbox>
+      </div>
+      <div class="col-md-4 form-inline">
+
+        <label>calibre de</label>
+
+        <app-form-text-addon inputType="number" append="mm" [(model)]="intestino.Calibre" [desabilitado]="!intestino.Apendicite"></app-form-text-addon>
+
+      </div>
+      <div class="col-md-4">
+        <app-form-checkbox text='Coleção?' [(model)]="intestino.ApendiceColecao"></app-form-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <app-form-checkbox text='diverticulite' [(model)]="intestino.Diverticulite"></app-form-checkbox>
+      </div>
+      <div class="col-md-4">
+        <app-form-combobox class="span-inputs" [(model)]="intestino.TipoDiverticulite" [itens]="tipoDiverticulite" [desabilitado]="!intestino.Diverticulite"></app-form-combobox>
+      </div>
+      <div class="col-md-4">
+        <app-form-checkbox text='Coleção?' [(model)]="intestino.ColecaoDiversiculite"></app-form-checkbox>
+      </div>
+    </div>
+  </div>
+</div>

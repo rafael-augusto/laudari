@@ -1,0 +1,56 @@
+<div class="row">
+  
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-6">
+        <fieldset class="form-group">
+          <app-form-radiobox nome="radioPancreas" [valor]="0" [(model)]="pancreas.Classificacao" text="Normal"></app-form-radiobox>
+          <app-form-radiobox nome="radioPancreas" [valor]="1" [(model)]="pancreas.Classificacao" text="Parcialmente Acessível"></app-form-radiobox>
+          <app-form-radiobox nome="radioPancreas" [valor]="2" [(model)]="pancreas.Classificacao" text="Inacessível"></app-form-radiobox>
+          <app-form-radiobox nome="radioPancreas" [valor]="3" [(model)]="pancreas.Classificacao" text="Sinais de Pancreatite Aguda"></app-form-radiobox>
+        </fieldset>
+      </div>
+      <div class="col-md-6">
+        <fieldset class="form-group">
+          <div class="card mb-3">
+            <div class="card-header">Dimensões (espessura)</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <app-form-checkbox text='Cabeça' [desabilitado]="isPancreasInacessivel()" [(model)]="pancreas.CheckCabeca"></app-form-checkbox>
+                </div>
+                <div class="col-md-6">
+                  <app-form-text-addon [desabilitado]="validaDesabilitado(pancreas.CheckCabeca)" inputType="number" append="mm" [(model)]="pancreas.TamanhoCabeca"></app-form-text-addon>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <app-form-checkbox text='Corpo' [desabilitado]="isPancreasInacessivel()" [(model)]="pancreas.CheckCorpo"></app-form-checkbox>
+                </div>
+                <div class="col-md-6">
+
+
+                  <app-form-text-addon [desabilitado]="validaDesabilitado(pancreas.CheckCorpo)" inputType="number" append="mm" [(model)]="pancreas.TamanhoCorpo"></app-form-text-addon>
+
+
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <app-form-checkbox text='Cauda' [desabilitado]="isPancreasInacessivel()" [(model)]="pancreas.CheckCauda"></app-form-checkbox>
+                </div>
+                <div class="col-md-6">
+                  <app-form-text-addon [desabilitado]="validaDesabilitado(pancreas.CheckCauda)" inputType="number" append="mm" [(model)]="pancreas.TamanhoCauda"></app-form-text-addon>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-6">
+        <app-form-radiobox class="span-inputs" nome="radioClassificacao" [valor]="0" [(model)]="bexiga.Classificacao" text="Normal"></app-form-radiobox>
+      </div>
+      <div class="col-md-6">
+        <app-form-checkbox text='Não cotar bexiga' [(model)]="bexiga.NaoCitar"></app-form-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <app-form-radiobox class="span-inputs" nome="radioClassificacao" [valor]="1" [(model)]="bexiga.Classificacao" text="trabeculada (de esforço)"></app-form-radiobox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <app-form-radiobox class="span-inputs" nome="radioClassificacao" [valor]="2" [(model)]="bexiga.Classificacao" text="replecao insuficiente"></app-form-radiobox>
+      </div>
+    </div>
+  </div>
+</div>

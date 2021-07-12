@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="row" style="padding-left:20px">
+      <div class="col-md-12 form-inline">
+        <span class="span-inputs">Vol. pré-miccional </span>
+        <app-form-text-addon class="span-inputs" inputType="number" [(model)]="volumeVesical.DimensaoAVolMiccional"
+          [desabilitado]="volumeVesical.NaoCitarVolMiccional"></app-form-text-addon>
+        <span class="span-inputs"> x </span>
+        <app-form-text-addon class="span-inputs" inputType="number" [(model)]="volumeVesical.DimensaoBVolMiccional"
+          [desabilitado]="volumeVesical.NaoCitarVolMiccional"></app-form-text-addon>
+        <span class="span-inputs"> x </span>
+        <app-form-text-addon class="span-inputs" inputType="number" [(model)]="volumeVesical.DimensaoCVolMiccional"
+          [desabilitado]="volumeVesical.NaoCitarVolMiccional"></app-form-text-addon>
+        <span class="span-inputs">mm = </span>
+        <app-form-text-addon class="span-inputs" inputType="number" [(model)]="volumeVesical.EspessuraVolMiccional"
+          [desabilitado]="volumeVesical.NaoCitarVolMiccional" append="ml"></app-form-text-addon>
+        <app-form-checkbox text='Nao Citar' [(model)]="volumeVesical.NaoCitarVolMiccional"></app-form-checkbox>
+      </div>
+    </div>
+    <div class="row" style="padding-left:20px">
+        <div class="col-md-12 form-inline">
+          <span class="span-inputs">Resíduo </span>
+          <app-form-text-addon class="span-inputs" inputType="number" [(model)]="volumeVesical.DimensaoAResiduo"
+            [desabilitado]="volumeVesical.NaoCitarResiduo"></app-form-text-addon>
+          <span class="span-inputs"> x </span>
+          <app-form-text-addon class="span-inputs" inputType="number" [(model)]="volumeVesical.DimensaoBResiduo"
+            [desabilitado]="volumeVesical.NaoCitarResiduo"></app-form-text-addon>
+          <span class="span-inputs"> x </span>
+          <app-form-text-addon class="span-inputs" inputType="number" [(model)]="volumeVesical.DimensaoCResiduo"
+            [desabilitado]="volumeVesical.NaoCitarResiduo"></app-form-text-addon>
+          <span class="span-inputs">mm = </span>
+          <app-form-text-addon class="span-inputs" inputType="number" [(model)]="volumeVesical.EspessuraResiduo"
+            [desabilitado]="volumeVesical.NaoCitarResiduo" append="ml"></app-form-text-addon>
+          <app-form-checkbox text='Nao Citar' [(model)]="volumeVesical.NaoCitarResiduo"></app-form-checkbox>
+        </div>
+      </div>
+    
+  </div>
+  
+</div>
