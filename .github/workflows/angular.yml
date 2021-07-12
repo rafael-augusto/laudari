@@ -4,11 +4,13 @@ on:
     branches: [ main ]
     paths:
       - Laudari.Webapp/laudari-webapp/**
+      - .github/workflows/angular.yml
 
   pull_request:
     branches: [ main ]
     paths:
       - Laudari.Webapp/laudari-webapp/**
+      - .github/workflows/angular.yml
 
 defaults:
   run:
